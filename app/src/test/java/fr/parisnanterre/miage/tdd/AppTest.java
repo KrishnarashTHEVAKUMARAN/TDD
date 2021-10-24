@@ -4,9 +4,21 @@
 package fr.parisnanterre.miage.tdd;
 
 import org.junit.jupiter.api.Test;
+import org.testng.annotations.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
+    @BeforeClass
+
+    @BeforeMethod
+
+    @AfterClass
+
+    @AfterMethod
+
+//    @DataProvider
+    
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
