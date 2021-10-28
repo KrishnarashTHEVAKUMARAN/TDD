@@ -3,16 +3,18 @@
  */
 package fr.parisnanterre.miage.tdd;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Dictionnaire {
     private String name ;
-    private Map<String,String> translations;
+    private Map<String, List<String>> translations;
 
     public Dictionnaire(String nom) {
         this.name = nom;
-        this.translations=new HashMap<>();
+        this.translations = new HashMap<>();
     }
 
     public String getName() {
@@ -28,12 +30,30 @@ public class Dictionnaire {
         }
     }
 
-    public String getTranslation(String name){
+    public List<String> getTranslation(String name){
         return translations.get(name);
     }
 
+    public List<String> getMutliplesTranslations(String original){
+        return translations.get(original);
+    }
+
     public void addTranslation(String name, String name1){
-        translations.put(name, name1);
+        if (translations.containsKey(name)) {
+            translations.get(name).add(name1);
+
+            List<String> name2 = new ArrayList<String>();
+
+            name2.add(name);
+
+            translations.put(name1, name2);
+        }else {
+            List<String> listName = new ArrayList<String>();
+
+            listName.add(name1);
+
+            translations.put(name, listName);
+        }
     }
 
 }

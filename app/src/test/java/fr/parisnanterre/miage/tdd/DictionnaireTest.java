@@ -3,11 +3,13 @@
  */
 package fr.parisnanterre.miage.tdd;
 
-import org.junit.Before;
+import org.junit.After;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 class DictionnaireTest {
@@ -29,7 +31,17 @@ class DictionnaireTest {
 
     @Test public void testOneTranslation(){
         dictionary.addTranslation("contre","against");
-        assertThat(dictionary.getTranslation("contre"),equalTo("against"));
+        assertThat(dictionary.getTranslation("contre"),containsInAnyOrder("against"));
     }
 
+    @Test public void testMultiplesTranslation() {
+        dictionary.addTranslation("contre", "against");
+        dictionary.addTranslation("contre", "versus");
+        assertThat(dictionary.getMutliplesTranslations("contre"), containsInAnyOrder("against", "versus"));
+    }
+
+    @AfterEach
+    public void cleanUp(){
+        this.dictionary= null;
+    }
 }

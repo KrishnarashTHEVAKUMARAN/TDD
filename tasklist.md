@@ -6,7 +6,7 @@
 
 [X] 4- Fixtures
 
-[ ] 5- Traduction Multiple
+[X] 5- Traduction Multiple
 
 [ ] 6- Traduction Inverse
 
