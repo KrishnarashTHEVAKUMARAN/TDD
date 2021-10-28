@@ -1,6 +1,6 @@
 [X] 1- Tache avec le getName()
 
-[ ] 2- Tache avec le isEmpty()
+[X] 2- Tache avec le isEmpty()
 
 [ ] 3- Tache avec le getTranslation()
 
