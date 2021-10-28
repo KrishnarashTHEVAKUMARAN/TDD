@@ -7,8 +7,14 @@
  */
 
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
+    // application Java
     id 'application'
+
+    // couverture
+    id 'jacoco'
+
+    // améliorations sorties des tests avec gradle
+    id "com.adarshr.test-logger" version "3.0.0"
 }
 
 repositories {
@@ -16,8 +22,12 @@ repositories {
     mavenCentral()
 }
 
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
 dependencies {
     implementation 'org.testng:testng:7.1.0'
+    implementation 'junit:junit:4.13.1'
 
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.7.2'
@@ -31,10 +41,39 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'fr.parisnanterre.miage.tdd.App'
+    mainClass = 'fr.parisnanterre.miage.tdd.Dictionnaire'
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+jacoco {
+    toolVersion = '0.8.7'
+    reportsDir = file("${buildDir}/reports/jacoco")
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+        html.destination = file("${buildDir}/jacocoHtml")
+    }
+}
+
+testlogger {
+    theme 'mocha'
+    showExceptions true
+    showStackTraces true
+    showFullStackTraces false
+    showCauses true
+    slowThreshold 2000
+    showSummary true
+    showSimpleNames false
+    showPassed true
+    showSkipped true
+    showFailed true
+    showStandardStreams false
+    showPassedStandardStreams true
 }
