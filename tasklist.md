@@ -12,8 +12,6 @@
 
 [ ] 7- Chargement de fichier
 
-[ ] 8- Test suites de JUnit
+[X] 8- Test suites de JUnit
 
 [ ] 9- Free wheeling
-
-[ ] 10- Couverture
