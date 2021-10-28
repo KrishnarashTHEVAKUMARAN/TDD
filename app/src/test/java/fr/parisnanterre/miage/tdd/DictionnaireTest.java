@@ -15,11 +15,16 @@ class DictionnaireTest {
 
     @BeforeEach
     public void initialize(){
-        dictionary = new Dictionnaire();
+        dictionary = new Dictionnaire("Example");
     }
 
     @Test
     public void testDictionaryName(){
         assertThat(dictionary.getName(), equalTo("Example"));
     }
+
+    @Test public void testDictionnaryIsEmpty(){
+        assertThat(dictionary.isEmpty(),equalTo(false));
+    }
+
 }

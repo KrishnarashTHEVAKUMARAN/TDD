@@ -6,12 +6,16 @@ package fr.parisnanterre.miage.tdd;
 public class Dictionnaire {
     private String name ;
 
-    public Dictionnaire() {
-        this.name = "Example";
+    public Dictionnaire(String nom) {
+        this.name = nom;
     }
 
     public String getName() {
         return this.name;
+    }
+
+    public boolean isEmpty(){
+        return false;
     }
 
 }
