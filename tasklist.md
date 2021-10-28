@@ -4,7 +4,7 @@
 
 [X] 3- Tache avec le getTranslation()
 
-[ ] 4- Fixtures
+[X] 4- Fixtures
 
 [ ] 5- Traduction Multiple
 
