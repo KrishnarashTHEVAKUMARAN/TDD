@@ -4,16 +4,22 @@
 package fr.parisnanterre.miage.tdd;
 
 import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 class DictionnaireTest {
-    private Dictionnaire dictionary = new Dictionnaire();
+    private Dictionnaire dictionary;
+
+    @BeforeEach
+    public void initialize(){
+        dictionary = new Dictionnaire();
+    }
 
     @Test
     public void testDictionaryName(){
-        assertThat(this.dictionary.getName(), equalTo("Example"));
+        assertThat(dictionary.getName(), equalTo("Example"));
     }
 }
