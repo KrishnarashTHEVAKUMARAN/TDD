@@ -15,16 +15,21 @@ class DictionnaireTest {
 
     @BeforeEach
     public void initialize(){
-        dictionary = new Dictionnaire("Example");
+        this.dictionary= new Dictionnaire("contre");
     }
 
     @Test
     public void testDictionaryName(){
-        assertThat(dictionary.getName(), equalTo("Example"));
+        assertThat(dictionary.getName(),equalTo("contre"));
     }
 
     @Test public void testDictionnaryIsEmpty(){
-        assertThat(dictionary.isEmpty(),equalTo(false));
+        assertThat(dictionary.isEmpty(),equalTo(true));
+    }
+
+    @Test public void testOneTranslation(){
+        dictionary.addTranslation("contre","against");
+        assertThat(dictionary.getTranslation("contre"),equalTo("against"));
     }
 
 }

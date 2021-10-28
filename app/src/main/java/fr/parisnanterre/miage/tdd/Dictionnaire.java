@@ -3,11 +3,16 @@
  */
 package fr.parisnanterre.miage.tdd;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Dictionnaire {
     private String name ;
+    private Map<String,String> translations;
 
     public Dictionnaire(String nom) {
         this.name = nom;
+        this.translations=new HashMap<>();
     }
 
     public String getName() {
@@ -15,7 +20,20 @@ public class Dictionnaire {
     }
 
     public boolean isEmpty(){
-        return false;
+        if(this.translations.isEmpty()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public String getTranslation(String name){
+        return translations.get(name);
+    }
+
+    public void addTranslation(String name, String name1){
+        translations.put(name, name1);
     }
 
 }

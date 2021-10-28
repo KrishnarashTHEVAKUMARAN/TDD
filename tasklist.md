@@ -2,7 +2,7 @@
 
 [X] 2- Tache avec le isEmpty()
 
-[ ] 3- Tache avec le getTranslation()
+[X] 3- Tache avec le getTranslation()
 
 [ ] 4- Fixtures
 
